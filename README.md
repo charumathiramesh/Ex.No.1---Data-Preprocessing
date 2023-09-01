@@ -37,45 +37,54 @@ Name : charumathi R
 Reg no : 212222240021
 ```
 ## Importing libraries :
+```C
 import pandas as pd
 import io
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-
+```
 ## Reading the dataset :
+```C
 df=pd.read_csv("/content/Churn_Modelling.csv", index_col="RowNumber")
 df
-
+```
 ## Dropping the unwanted Columns :
+```C
 df.drop(['CustomerId'],axis=1,inplace=True)
 df.drop(['Surname'],axis=1,inplace=True)
 df.drop('Age',axis=1,inplace=True)
 df.drop('Geography',axis=1,inplace=True)
 df.drop('Gender',axis=1,inplace=True)
 df
-
+```
 ## Checking for null values :
+```C
 df.isnull().sum()
-
+```
 ## Checking for duplicate values :
+```C
 df.duplicated()
-
+```
 
 ## Describing the dataset :
+```C
 df.describe()
-
+```
 ## Scaling the dataset :
+```C
 scaler=StandardScaler()
 df1=pd.DataFrame(scaler.fit_transform(df))
 df1
-
+```
 ## Allocating X and Y attributes :
+```C
 x=df1.iloc[:,:-1].values
 x
 y=df1.iloc[:,-1].values
 y
-
+```
 ## Splitting the data into training and testing dataset :
+```C
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
 print(x_train)
 print(len(x_train))
