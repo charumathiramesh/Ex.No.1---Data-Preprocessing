@@ -32,10 +32,10 @@ Normalizing the data
 Splitting the data into test and train
 
 ## PROGRAM:
-```C
+```
 Name : charumathi R
 Reg no : 212222240021
-
+```
 ## Importing libraries :
 import pandas as pd
 import io
