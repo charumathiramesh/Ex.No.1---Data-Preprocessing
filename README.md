@@ -32,10 +32,75 @@ Normalizing the data
 Splitting the data into test and train
 
 ## PROGRAM:
-/Write your code here/
+```C
+Name : charumathi R
+Reg no : 212222240021
+
+## Importing libraries :
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+
+## Reading the dataset :
+df=pd.read_csv("/content/Churn_Modelling.csv", index_col="RowNumber")
+df
+
+## Dropping the unwanted Columns :
+df.drop(['CustomerId'],axis=1,inplace=True)
+df.drop(['Surname'],axis=1,inplace=True)
+df.drop('Age',axis=1,inplace=True)
+df.drop('Geography',axis=1,inplace=True)
+df.drop('Gender',axis=1,inplace=True)
+df
+
+## Checking for null values :
+df.isnull().sum()
+
+## Checking for duplicate values :
+df.duplicated()
+
+
+## Describing the dataset :
+df.describe()
+
+## Scaling the dataset :
+scaler=StandardScaler()
+df1=pd.DataFrame(scaler.fit_transform(df))
+df1
+
+## Allocating X and Y attributes :
+x=df1.iloc[:,:-1].values
+x
+y=df1.iloc[:,-1].values
+y
+
+## Splitting the data into training and testing dataset :
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print(x_train)
+print(len(x_train))
+print(x_test)
+print(len(x_test))
 
 ## OUTPUT:
-/ Show the result/
+## The dataset :
+![263764138-391cce8d-f388-414d-899a-4752e2648ec5](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/4602a691-ce56-4599-be28-d1dbf84c6f8f)
+## Dropping unwanted features :
+![263764194-2bcaef48-5a20-4bb6-b0fd-7e48d106e963](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/a1814a51-3183-47f3-a206-ac652fb26458)
+## Checking for null values :
+![263764251-9c21e1be-8ccd-4fd7-a83e-3975c673c1c1](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/c0c93b29-6465-44aa-84a8-791764903a37)
+## Checking for duplication :
+![263764310-c9ce2aa0-0a52-4018-9600-364a7ab8ee48](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/328c73bc-5773-42d8-9c0a-113749997b77)
+## Describing the dataset :
+![263772262-6cd21fe4-36e0-4ca2-95d5-13062a8e50fe](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/a5b12844-69bc-45e4-a81e-369f397e74a0)
+## Scaling the values :
+![263772306-d9ae5839-2ee0-4dc6-a840-2c95bd101ee2](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/34613cc1-4229-40f4-94fe-4c40a08f725f)
+## X Features :
+![263773572-423295d1-741a-46ee-9bfe-580b74c0632d](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/82154363-58d3-4578-b1f3-71cefd8d1fec)
+## Y Features :
+![263772359-c56f5bf0-f479-43fb-98fb-9632f624f449](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/95cff3d1-6446-4b7a-93aa-deed1cbb803d)
+## Splitting the training and testing dataset :
+![263772419-ccd3e259-59d5-415a-b880-2ee0c4473368](https://github.com/charumathiramesh/Ex.No.1---Data-Preprocessing/assets/120204455/edbdc2c9-ce14-4efb-a342-d7dd77b9f460)
 
-## RESULT
-/Type your result here/
+## RESULT:
+Thus we have successfully performed Data preprocessing in a data set downloaded from Kaggle
