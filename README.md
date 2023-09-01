@@ -81,6 +81,7 @@ print(x_train)
 print(len(x_train))
 print(x_test)
 print(len(x_test))
+```
 
 ## OUTPUT:
 ## The dataset :
